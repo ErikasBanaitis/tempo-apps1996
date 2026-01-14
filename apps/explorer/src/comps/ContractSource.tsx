@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ContractFeatureCard } from '#comps/Contract.tsx'
-import { cx } from '#cva.config.ts'
+import { cx } from '#lib/css'
 import type { ContractSource } from '#lib/domain/contract-source.ts'
 import { useCopy, useCopyPermalink } from '#lib/hooks'
 import CheckIcon from '~icons/lucide/check'
@@ -154,9 +154,7 @@ function SourceFile(props: {
 				</button>
 				<div className="flex items-center gap-2 shrink-0">
 					<span
-						className={cx('text-[11px] text-tertiary', {
-							'text-tertiary/50': !isCollapsed,
-						})}
+						className={cx('text-[11px]', isCollapsed ? 'text-tertiary' : 'text-tertiary/50')}
 					>
 						{lineCount} lines
 					</span>
