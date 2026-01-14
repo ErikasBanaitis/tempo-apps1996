@@ -68,7 +68,7 @@ jobs:
       - name: Test Vyper (small counter)
         if: steps.check.outputs.skip != 'true'
         env:
-          TEMPO_RPC_URL: ${{ matrix.network == 'testnet' && 'http://rpc.testnet.tempo.xyz' || matrix.network == 'moderato' && 'https://rpc.moderato.tempo.xyz' || matrix.network == 'devnet' && 'https://rpc.devnet.tempoxyz.dev' }}
+          TEMPO_RPC_URL: ${{ matrix.network == 'testnet' && 'https://rpc.testnet.tempo.xyz' || matrix.network == 'moderato' && 'https://rpc.moderato.tempo.xyz' || matrix.network == 'devnet' && 'https://rpc.devnet.tempoxyz.dev' }}
           TEMPO_FEE_TOKEN: ${{ matrix.network == 'testnet' && '0x20c0000000000000000000000000000000000002' || matrix.network == 'moderato' && '0x20c0000000000000000000000000000000000002' || matrix.network == 'devnet' && '0x20c0000000000000000000000000000000000002' }}
         run: ./scripts/test-vyper.sh
 
@@ -105,6 +105,6 @@ jobs:
       - name: Test Solidity
         if: steps.check.outputs.skip != 'true'
         env:
-          TEMPO_RPC_URL: ${{ matrix.network == 'testnet' && 'http://rpc.testnet.tempo.xyz' || matrix.network == 'moderato' && 'https://rpc.moderato.tempo.xyz' || matrix.network == 'devnet' && 'https://rpc.devnet.tempoxyz.dev' }}
+          TEMPO_RPC_URL: ${{ matrix.network == 'testnet' && 'https://rpc.testnet.tempo.xyz' || matrix.network == 'moderato' && 'https://rpc.moderato.tempo.xyz' || matrix.network == 'devnet' && 'https://rpc.devnet.tempoxyz.dev' }}
           TEMPO_FEE_TOKEN: ${{ matrix.network == 'testnet' && '0x20c0000000000000000000000000000000000002' || matrix.network == 'moderato' && '0x20c0000000000000000000000000000000000002' || matrix.network == 'devnet' && '0x20c0000000000000000000000000000000000002' }}
         run: ./scripts/test-big-boy.sh
