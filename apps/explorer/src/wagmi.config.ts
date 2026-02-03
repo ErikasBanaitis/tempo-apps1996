@@ -19,6 +19,7 @@ import {
 	serialize,
 	webSocket,
 } from 'wagmi'
+import { KeyManager, webAuthn } from 'wagmi/tempo'
 
 const TEMPO_ENV = import.meta.env.VITE_TEMPO_ENV
 
@@ -99,8 +100,12 @@ export function getWagmiConfig() {
 
 	return createConfig({
 		ssr: true,
-		batch: { multicall: false },
 		chains: [chain, tempoLocalnet],
+		connectors: [
+			webAuthn({
+				keyManager: KeyManager.http('https://keys.tempo.xyz'),
+			}),
+		],
 		storage: createStorage({ storage: cookieStorage }),
 		transports: {
 			[chain.id]: transport,
