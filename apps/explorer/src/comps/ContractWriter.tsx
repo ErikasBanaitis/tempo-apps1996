@@ -22,6 +22,34 @@ import CopyIcon from '~icons/lucide/copy'
 import LinkIcon from '~icons/lucide/link'
 import PlayIcon from '~icons/lucide/play'
 
+function getWriteErrorMessage(err: Error): string {
+	// Walk the cause chain to find the deepest shortMessage/message
+	let deepest = err as Error & { shortMessage?: string }
+	let current: unknown = err
+	while (
+		current &&
+		typeof current === 'object' &&
+		'cause' in current &&
+		current.cause instanceof Error
+	) {
+		current = current.cause
+		deepest = current as Error & { shortMessage?: string }
+	}
+
+	const message =
+		(err as Error & { shortMessage?: string }).shortMessage ??
+		deepest.shortMessage ??
+		deepest.message ??
+		err.message ??
+		'Transaction failed'
+
+	if (/unknown reason|reverted/i.test(message)) {
+		return `${message}. This usually means the caller is not authorized (e.g. only the contract owner/admin can execute this function).`
+	}
+
+	return message
+}
+
 export function ContractWriter(props: ContractWriter.Props) {
 	const { address, abi } = props
 
@@ -271,9 +299,7 @@ function WriteContractFunction(props: {
 					{writeContract.error && (
 						<div className="p-2.5 rounded-md bg-red-500/10 border border-red-500/20">
 							<p className="text-[12px] text-red-400">
-								{'shortMessage' in writeContract.error
-									? writeContract.error.shortMessage
-									: (writeContract.error.message ?? 'Transaction failed')}
+								{getWriteErrorMessage(writeContract.error)}
 							</p>
 						</div>
 					)}
