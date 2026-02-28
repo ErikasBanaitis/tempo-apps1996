@@ -1,61 +1,12 @@
-{
-	"$schema": "https://esm.sh/gh/uniswap/token-lists/src/tokenlist.schema.json",
-	"name": "Tempo Testnet (Moderato)",
-	"logoURI": "https://esm.sh/gh/tempoxyz/tokenlist/data/42431/icon.svg",
-	"timestamp": "2026-01-06T00:00:00Z",
-	"version": {
-		"major": 1,
-		"minor": 0,
-		"patch": 0
-	},
-	"tokens": [
-		{
-			"name": "PathUSD",
-			"symbol": "pathUSD",
-			"decimals": 6,
-			"chainId": 42431,
-			"address": "0x20c0000000000000000000000000000000000000",
-			"logoURI": "https://esm.sh/gh/tempoxyz/tempo-apps/apps/tokenlist/data/42431/icons/0x20c0000000000000000000000000000000000000.svg",
-			"extensions": {
-				"chain": "tempo",
-				"label": "PathUSD"
-			}
-		},
-		{
-			"name": "AlphaUSD",
-			"symbol": "alphaUSD",
-			"decimals": 6,
-			"chainId": 42431,
-			"address": "0x20c0000000000000000000000000000000000001",
-			"logoURI": "https://esm.sh/gh/tempoxyz/tempo-apps/apps/tokenlist/data/42431/icons/0x20c0000000000000000000000000000000000001.svg",
-			"extensions": {
-				"chain": "tempo",
-				"label": "AlphaUSD"
-			}
-		},
-		{
-			"name": "BetaUSD",
-			"symbol": "betaUSD",
-			"decimals": 6,
-			"chainId": 42431,
-			"address": "0x20c0000000000000000000000000000000000002",
-			"logoURI": "https://esm.sh/gh/tempoxyz/tempo-apps/apps/tokenlist/data/42431/icons/0x20c0000000000000000000000000000000000002.svg",
-			"extensions": {
-				"chain": "tempo",
-				"label": "BetaUSD"
-			}
-		},
-		{
-			"name": "ThetaUSD",
-			"symbol": "thetaUSD",
-			"decimals": 6,
-			"chainId": 42431,
-			"address": "0x20c0000000000000000000000000000000000003",
-			"logoURI": "https://esm.sh/gh/tempoxyz/tempo-apps/apps/tokenlist/data/42431/icons/0x20c0000000000000000000000000000000000003.svg",
-			"extensions": {
-				"chain": "tempo",
-				"label": "ThetaUSD"
-			}
-		}
-	]
-}
+    {
+      "name": "GHFGDF",
+      "symbol": "FGFGUSD",
+      "decimals": 6,
+      "chainId": 42431,
+      "address": "0x20c0000000000000000000002C20137714b4620b",
+      "logoURI": "https://esm.sh/gh/tempoxyz/tempo-apps/apps/tokenlist/data/42431/icons/0x20c0000000000000000000002c20137714b4620b.svg",
+      "extensions": {
+        "chain": "tempo",
+        "label": "FGFGUSD"
+      }
+    },
